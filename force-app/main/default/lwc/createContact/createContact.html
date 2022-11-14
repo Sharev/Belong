@@ -1,0 +1,37 @@
+<template>
+<lightning-card>
+    <div slot="title">
+        <h3>
+            <lightning-icon icon-name="standard:contact" size="small"></lightning-icon> Add Contact
+            </h3>
+        </div>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            <div class="slds-form-element">
+                <lightning-input label="First Name" value={firstName} onchange={contactChangeVal}></lightning-input>
+            </div>
+        </div>
+        <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            <div class="slds-form-element">
+                <lightning-input label="Last Name" value={lastName} onchange={contactChangeVal} required></lightning-input>
+            </div>
+        </div>
+        <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            <div class="slds-form-element">
+                <lightning-input type="email" label="Email" value={emailId} onchange={contactChangeVal} required></lightning-input>
+            </div>
+        </div>
+        <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            <div class="slds-form-element">
+                <lightning-input type="tel" label="Mobile Number" value={mobileVal} placeholder="0400111222" onchange={contactChangeVal} pattern="[0-9]{10}" required></lightning-input>
+            </div>
+        </div>
+
+        <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+            <div class="slds-form-element slds-p-top_large ">
+                <lightning-button label="Create Contact" variant="brand" onclick={insertContactAction}></lightning-button>
+            </div>
+        </div>
+    </div>
+</lightning-card>
+</template>

@@ -1,0 +1,49 @@
+<template>
+    <lightning-card>
+        <div slot="title">
+            <h3>
+                <lightning-icon icon-name="custom:custom11" size="small"></lightning-icon> Add Order
+                </h3>
+            </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input type="date" label="Order Start Date" value={startDate} onchange={orderChangeVal} required></lightning-input>
+                </div>
+            </div>
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-combobox
+                        name="status"
+                        label="Status"
+                        value={value}
+                        placeholder="Select Status"
+                        options={picklistValues}
+                        onchange={orderChangeVal} 
+                        required></lightning-combobox>
+                </div>
+            </div>
+            
+            <div class="slds-p-around_small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <c-custom-lookup 
+                        field-label="Contract Name" 
+                        field-name="Contract Name"
+                        object-name="Contract" 
+                        object-label="Contract" 
+                        icon="standard:account"
+                        columns={columns}
+                        oncustomlookupselect={orderChangeVal}
+                        required>
+                    </c-custom-lookup>
+                </div>
+            </div>
+
+            <div class="slds-p-horizontal--small slds-col slds-size_7-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element slds-p-top_large ">
+                    <lightning-button label="Create Order" variant="brand" onclick={insertOrderAction}></lightning-button>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+    </template>
